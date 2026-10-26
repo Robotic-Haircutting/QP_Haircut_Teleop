@@ -5,7 +5,7 @@ This repository contains the full-text PDF, the presentation slides and all expe
 | Content | Location |
 | --- | --- |
 | Paper PDF | [`paper/QP_Teleoperation_Robotic_Haircutting.pdf`](paper/QP_Teleoperation_Robotic_Haircutting.pdf) |
-| Slides (17 pages, PDF) | [`slides/QP_Haircut_Teleop_talk.pdf`](slides/QP_Haircut_Teleop_talk.pdf) |
+| Slides (17 pages) | [`slides/QP_Haircut_Teleop_talk.pdf`](slides/QP_Haircut_Teleop_talk.pdf) (PDF), [`slides/QP_Haircut_Teleop_talk.pptx`](slides/QP_Haircut_Teleop_talk.pptx) (PowerPoint, with animations) |
 | Supplementary video | [`video/Supplementary_Video.mp4`](video/Supplementary_Video.mp4) |
 | Experiment code | [`code/`](code) |
 
@@ -60,7 +60,7 @@ Where this lives in the code:
 ```
 QP_Haircut_Teleop/
 ├── paper/                       # paper PDF
-├── slides/                      # presentation slides (PDF)
+├── slides/                      # presentation slides (PDF and PowerPoint)
 ├── video/                       # supplementary video
 ├── media/                       # demo GIFs shown in this README
 └── code/
