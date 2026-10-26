@@ -5,8 +5,19 @@ This repository contains the full-text PDF, the presentation slides and all expe
 | Content | Location |
 | --- | --- |
 | Paper PDF | [`paper/QP_Teleoperation_Robotic_Haircutting.pdf`](paper/QP_Teleoperation_Robotic_Haircutting.pdf) |
-| Slides (17 pages) | [`slides/QP_Haircut_Teleop_talk.pptx`](slides/QP_Haircut_Teleop_talk.pptx) |
+| Slides (17 pages, PDF) | [`slides/QP_Haircut_Teleop_talk.pdf`](slides/QP_Haircut_Teleop_talk.pdf) |
+| Supplementary video | [`video/Supplementary_Video.mp4`](video/Supplementary_Video.mp4) |
 | Experiment code | [`code/`](code) |
+
+## Demos
+
+**Application 1: heterogeneous leader-follower teleoperation.** An SO-101 leader arm teleoperates a Piper follower arm; simulation views with model-based hair coverage (left, center) and the camera view of the real arms (right).
+
+<p align="center"><img src="media/app1_leader_follower_teleop.gif" alt="SO-101 leader teleoperating the Piper follower" width="100%"></p>
+
+**Application 2: smartphone-based teleoperation.** The phone camera observes a board of four AprilTags, and the estimated phone pose is the desired pose of the follower; the phone screen shows the MuJoCo view and the camera view of the follower.
+
+<p align="center"><img src="media/app2_smartphone_teleop.gif" alt="Phone screen during smartphone-based teleoperation" width="320"></p>
 
 ## Overview
 
@@ -49,7 +60,9 @@ Where this lives in the code:
 ```
 QP_Haircut_Teleop/
 ├── paper/                       # paper PDF
-├── slides/                      # presentation slides
+├── slides/                      # presentation slides (PDF)
+├── video/                       # supplementary video
+├── media/                       # demo GIFs shown in this README
 └── code/
     ├── requirements.txt         # Python dependencies (shared by both experiments)
     ├── docs/                    # installation, procedures for both experiments, data format

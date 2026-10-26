@@ -16,6 +16,7 @@ results/
 logs/
 summary.csv
 *.mp4
+!video/Supplementary_Video.mp4
 *.webm
 *.log
 firewall_result.txt
