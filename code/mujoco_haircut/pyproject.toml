@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "haircut_sim"
+version = "0.2.0"
+description = "Self-contained haircut robot control and MuJoCo twin"
+requires-python = ">=3.10"
+dependencies = [
+    "mujoco>=3.3", "numpy", "lerobot>=0.6", "piper_sdk>=0.2",
+    "python-can", "opencv-python", "matplotlib",
+    "gs_usb; sys_platform == 'win32'",
+    "pyusb; sys_platform == 'win32'",
+    "libusb-package; sys_platform == 'win32'",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["haircut_sim*"]

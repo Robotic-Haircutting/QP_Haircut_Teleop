@@ -1,0 +1,174 @@
+{
+  "_note": "World frame = Piper base frame (x forward, z up), units m/deg. Edit this to match the physical setup, then restart the simulation window.",
+  "piper": {
+    "pos": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "yaw_deg": 0.0,
+    "init_joints_deg": [
+      0,
+      53,
+      -63,
+      0,
+      40,
+      0
+    ],
+    "_joint_offsets_note": "New firmware (piper_sdk dh_is_offset=1) uses [0,2,-2,0,0,0]; set all to 0 for old firmware",
+    "joint_offsets_deg": [
+      0,
+      2,
+      -2,
+      0,
+      0,
+      0
+    ]
+  },
+  "so101_leader": {
+    "pos": [
+      0.0,
+      0.55,
+      0.0
+    ],
+    "yaw_deg": 0.0,
+    "joint_signs": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "joint_offsets_deg": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "head": {
+    "enabled": true,
+    "file": "assets/head/HeadScan.stl",
+    "scale": 0.001,
+    "pos": [
+      0.363,
+      0.0666,
+      0.0103
+    ],
+    "euler_deg": [
+      0.0,
+      0.0,
+      -90.0
+    ],
+    "stand_height_m": 0.0,
+    "stand_radius_m": 0.04,
+    "rgba": [
+      0.93,
+      0.8,
+      0.7,
+      1.0
+    ]
+  },
+  "tool": {
+    "_note": "Clipper: a cylinder that sticks out 6 cm beyond the gripper fingertips in simulation, diameter = fingertip height of about 2.5 cm. tip_offset_m = clipper tip position relative to the Piper flange (link6) (fingertips 0.14 m + 0.06 m); it is also the teleoperation control point: the tip follows the leader end effector. The gripper is locked and does not follow the leader",
+    "tip_offset_m": [
+      0.0,
+      0.0,
+      0.2
+    ],
+    "clipper": {
+      "enabled": true,
+      "radius_m": 0.0125,
+      "length_m": 0.06,
+      "rgba": [
+        0.15,
+        0.15,
+        0.17,
+        1.0
+      ]
+    }
+  },
+  "hair": {
+    "_note": "Hair only on the rear of the top and the back of the head, forward to the ears (head center line): front_hairline_frac is the hairline position (0 = head center line at the ears, 1 = frontmost forehead), down to min_height_frac (top of the ears). Haircut regions = top (above top_frac) / back / left / right. cover_radius_m = how close the clipper tip must be to the hair to count as cut",
+    "min_height_frac": 0.55,
+    "face_axis_local": [
+      0,
+      1,
+      0
+    ],
+    "face_exclude_deg": 100,
+    "face_exclude_below_frac": 0.85,
+    "cover_radius_m": 0.03,
+    "grid_m": 0.0053,
+    "front_hairline_frac": 0.0,
+    "top_frac": 0.85,
+    "back_half_angle_deg": 45
+  },
+  "trail": {
+    "enabled": true
+  },
+  "udp_port": 50555,
+  "camera": {
+    "lookat": [
+      0.25,
+      0.2,
+      0.2
+    ],
+    "distance": 1.5,
+    "azimuth": 200,
+    "elevation": -25,
+    "follow_tip": true,
+    "follow_distance_m": 0.9,
+    "_note": "Main view: with follow_tip=true the look-at point follows the clipper tip (between it and the leader end effector when cutting the back/top; larger follow_leader_weight biases it toward the leader). With follow_region=true, when the tip is closer than region_switch_distance_m to the hair of a region, the view turns to that region's region_views angle; dragging with the mouse pauses this for manual_pause_s seconds. Press F in the window to toggle follow/free",
+    "follow_leader_weight": 0.45,
+    "follow_region": true,
+    "region_switch_distance_m": 0.08,
+    "region_turn_rate": 0.04,
+    "manual_pause_s": 5.0,
+    "region_views": {
+      "_note": "[angle of the side of the head the camera is on (from the face direction, 180 = directly behind, positive = the person's left), elevation]",
+      "back": [
+        135,
+        -30
+      ],
+      "left": [
+        100,
+        -25
+      ],
+      "right": [
+        -100,
+        -40
+      ],
+      "top": [
+        150,
+        -65
+      ]
+    }
+  },
+  "calibration": {
+    "_note": "fit_yaw=false: calibration solves only the position; orientation comes from head.euler_deg (-90 = face pointing away from Piper)",
+    "fit_yaw": false
+  },
+  "real_camera": {
+    "_note": "Real camera: opens a preview window next to the MuJoCo window and is composited to the right of the MuJoCo view when recording. index 1 = the camera facing the head and Piper (0 is the laptop's built-in one); enabled=false disables it",
+    "enabled": true,
+    "index": 1,
+    "width": 640,
+    "height": 480
+  },
+  "views": {
+    "_note": "The two small simulated views in the window and recording. gripper = gripper view (camera back_m behind and up_m above the tip, gripper semi-transparent with see_through_alpha); hair_map = haircut progress view looking at the hair from behind and above the head",
+    "gripper": {
+      "back_m": 0.22,
+      "up_m": 0.06,
+      "look_ahead_m": 0.05,
+      "see_through_alpha": 0.15
+    },
+    "hair_map": {
+      "distance_m": 0.38,
+      "elevation_deg": -40,
+      "azimuth_offset_deg": 0
+    }
+  }
+}

@@ -1,0 +1,20 @@
+# Shared by both experiments (Python 3.10+; tested on Windows with Python 3.12)
+numpy
+scipy
+matplotlib
+pandas
+opencv-python
+Pillow
+mujoco>=3.3
+
+# Experiment 1: SO-101 leader arm (LeRobot driver) and Piper follower arm
+lerobot>=0.6
+piper_sdk>=0.2
+python-can
+gs_usb; sys_platform == "win32"
+pyusb; sys_platform == "win32"
+libusb-package; sys_platform == "win32"
+
+# Experiment 2: phone web service
+aiohttp
+cryptography   # only needed by tools/make_cert.py to create a self-signed certificate

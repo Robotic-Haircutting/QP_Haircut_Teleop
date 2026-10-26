@@ -1,0 +1,59 @@
+*{box-sizing:border-box}body{margin:0;background:#101722;color:#e4edf5;font:15px system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:16px}h1{font-size:24px;margin:4px 0}header p,footer{color:#9bb0c3}header{margin-bottom:12px}.view{height:clamp(200px,40dvh,420px);position:relative;overflow:hidden;background:#000;border-radius:12px}video,canvas{position:absolute;width:100%;height:100%;object-fit:contain}canvas{pointer-events:none}#status{position:absolute;bottom:8px;left:8px;background:#000b;padding:6px 10px;border-radius:6px}.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:12px 0}button,select,input{background:#263648;color:white;border:1px solid #46596d;border-radius:7px;padding:9px;font:inherit}button{cursor:pointer}button:disabled{opacity:.5}button:hover{background:#344b64}label{display:flex;align-items:center;gap:6px;font-size:13px}input[type=number]{width:85px}input[type=file]{max-width:220px}.warning{padding:10px;border-left:4px solid #e7b64d;background:#29271f}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.cards>div,details{background:#1b2634;border-radius:10px;padding:12px;margin-bottom:10px}.cards pre{font-size:16px;margin-bottom:0}summary{cursor:pointer;font-weight:700}pre{white-space:pre-wrap;overflow-wrap:anywhere}p{line-height:1.6}footer{font-size:12px;line-height:1.7}#report{background:#101722;padding:12px;border-radius:8px}@media(max-width:500px){main{padding:10px}.cards{gap:6px}.cards>div{font-size:12px}.cards pre{font-size:13px}button{font-size:14px}}
+
+main{max-width:1440px}.live-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.view,.sim-view{height:clamp(280px,48dvh,580px)}.sim-view{position:relative;background:#000;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}.sim-view img{width:100%;height:100%;object-fit:contain}.sim-view span{position:absolute;top:8px;left:8px;background:#000b;padding:6px;border-radius:6px}.sim-controls{margin-top:12px;padding:12px;background:#1b2634;border-radius:12px}#simPause{background:#8b412d}#simResume{background:#226b50}#simStatus{font-weight:600}@media(max-width:760px){.live-grid{grid-template-columns:1fr}.view,.sim-view{height:32dvh;min-height:220px}}
+
+/* Cutting workspace: large simulation with a compact camera reference. */
+main{max-width:1720px}.live-grid{grid-template-columns:minmax(260px,1fr) minmax(0,2.4fr);align-items:center}.view{height:clamp(220px,32dvh,370px)}.sim-view{height:clamp(420px,65dvh,800px)}.sim-view:fullscreen{height:100dvh;width:100dvw;border-radius:0;background:#000}.sim-view:fullscreen img{object-fit:contain}@media(max-width:760px){.live-grid{grid-template-columns:1fr}.view{height:25dvh;min-height:180px}.sim-view{height:55dvh;min-height:300px}}
+.live-grid{display:flex;flex-direction:column;align-items:stretch}.sim-view{order:0;width:100%;height:auto;min-height:0;aspect-ratio:4/1}.view{order:1;width:min(440px,100%);height:220px;align-self:center}.sim-view span{top:auto;bottom:28px;font-size:12px;padding:3px 6px}.sim-view:fullscreen{aspect-ratio:auto;height:100dvh}.sim-view:fullscreen span{bottom:8px}@media(max-width:760px){.sim-view{height:auto;min-height:0;aspect-ratio:4/1}.view{height:180px}}
+
+.toolbar a{color:#91d1ff;border:1px solid #46596d;border-radius:7px;padding:9px;text-decoration:none}#recordInterface{background:#863434}#videoRecordStatus,#dataLogStatus{overflow-wrap:anywhere}
+.view{height:var(--camera-preview-height,25dvh);min-height:100px;max-height:60dvh}input[type=range]{width:140px}
+
+#phoneDirections[hidden]{display:none}
+.sim-view canvas{display:none}.phone-ui .sim-view{aspect-ratio:4/3;min-height:0}.phone-ui #simImage{display:none}.phone-ui #mobileSimulation{display:block}.phone-ui .sim-view:fullscreen{height:100dvh;aspect-ratio:auto}.phone-ui main{padding:8px}.phone-ui .sim-controls{padding:8px}.phone-ui .sim-controls button{padding:12px}.phone-ui #phoneDirections button{flex:1}
+
+/* Camera preview and live pose stay adjacent, below the three simulation views. */
+.camera-workspace{order:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:stretch;max-width:1050px;width:100%;align-self:center}
+.camera-workspace .view{width:100%;align-self:start}
+.pose-panel{background:#1b2634;border-radius:12px;padding:12px;min-width:0}
+.pose-panel h2{font-size:17px;margin:0 0 8px}.pose-panel p{font-size:12px;line-height:1.5;margin:6px 0;color:#b1c5d8}
+.pose-readings{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px}.pose-readings pre{font:15px ui-monospace,monospace;font-variant-numeric:tabular-nums;line-height:1.6;margin:6px 0;color:#fff}
+.pose-quality{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11px;color:#adc4d7}.pose-quality pre{margin:4px 0}
+.phone-ui .camera-workspace{gap:6px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.phone-ui .pose-panel{padding:8px}.phone-ui .pose-readings{grid-template-columns:1fr;gap:4px}.phone-ui .pose-readings pre{font-size:13px;line-height:1.3;margin:3px 0}.phone-ui .pose-quality{grid-template-columns:1fr}.phone-ui .pose-panel h2{font-size:14px}.phone-ui .pose-panel p{font-size:11px}.phone-ui .camera-workspace .view{position:sticky;top:8px}
+
+.camera-workspace .view{order:0}.camera-workspace .pose-panel{order:1}
+
+/* Keep the touch target stationary while live pose/status text changes height. */
+.phone-ui main{padding-bottom:190px}.phone-ui .clutch-dock{position:fixed;bottom:max(6px,env(safe-area-inset-bottom));left:6px;right:6px;z-index:100;background:#1b2634;border:1px solid #526a80;border-radius:12px;padding:8px;box-shadow:0 -4px 20px #0008}
+.phone-ui .clutch-dock .toolbar{display:grid;grid-template-columns:2fr 1fr 1fr;gap:6px;margin:0}.phone-ui .clutch-dock #simStart{display:none}.phone-ui .clutch-dock button{min-height:52px;padding:8px;font-size:13px;touch-action:manipulation}.phone-ui .clutch-dock #simStatus{font-size:12px;line-height:1.4;margin:6px 0 0;max-height:76px;overflow-y:auto}
+
+/* Larger uncropped camera preview; position and attitude remain beside it. */
+.view{max-height:70dvh}.camera-workspace{max-width:1400px}.phone-ui .camera-workspace{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}.phone-ui .pose-panel{overflow-wrap:anywhere}.phone-ui .pose-readings pre{font-size:12px}
+
+/* Phone: full-width shallow camera, compact pose readings underneath. */
+.phone-ui .camera-workspace{grid-template-columns:minmax(0,1fr);align-items:start}
+.phone-ui .camera-workspace .view{position:relative;top:auto;width:100%;height:var(--camera-preview-height,38dvh);min-height:120px;max-height:50dvh}
+.phone-ui .pose-readings,.phone-ui .pose-quality{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+.phone-ui .pose-panel{padding:8px 12px}.phone-ui .pose-panel p{margin:4px 0}
+.phone-ui #cameraWideHint{color:#b1c5d8;font-size:12px;margin:6px 0}
+
+/* Slightly smaller MuJoCo preview, preserving the original view proportions. */
+.sim-view{width:90%;align-self:center}.phone-ui .sim-view{width:86%}.sim-view:fullscreen,.phone-ui .sim-view:fullscreen{width:100dvw}
+
+[hidden]{display:none!important}
+
+/* Independent Piper entry: simulation left, named external camera right. */
+.real-comparison{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;width:100%;align-items:start}
+.real-comparison .sim-view,.phone-ui .real-comparison .sim-view{width:100%;min-width:0;margin:0}
+.observer-view{background:#101820;min-width:0;position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden}
+.observer-view img{width:100%;height:100%;object-fit:contain}.observer-view span{position:absolute;left:4px;bottom:4px;background:#000b;font-size:11px;padding:3px}
+.piper-page .robot-controls{background:#1b2634;border:1px solid #526a80;border-radius:12px;padding:12px}.piper-page #robotEmergency{background:#962e2e}
+.phone-ui.piper-page .simulation-dock{position:static}.phone-ui.piper-page .robot-controls .clutch-dock .toolbar{grid-template-columns:2fr 1fr 1fr}
+.piper-page .real-comparison .sim-view #simImage{display:block;width:100%;height:auto}.piper-page .real-comparison .sim-view #mobileSimulation{display:none}
+.piper-page .real-comparison .sim-view{aspect-ratio:4/3}.piper-page .real-comparison .sim-view #simImage{height:100%;object-fit:contain}
+
+.phone-ui.piper-page .real-comparison .sim-view #simImage{display:none}.phone-ui.piper-page .real-comparison .sim-view #mobileSimulation{display:block;width:100%;height:100%}
+
+.phone-ui.piper-page .robot-controls .clutch-dock .toolbar{grid-template-columns:1fr 1fr}.piper-page #robotClutch{font-weight:700}.piper-page .camera-settings:has([data-home-locked]) summary::after{content:" · Locked during homing";color:#e7b64d}
+
+.phone-ui.piper-page .robot-controls .clutch-dock .toolbar{grid-template-columns:repeat(6,minmax(0,1fr))}.phone-ui.piper-page .robot-controls .clutch-dock .toolbar button{grid-column:span 3}.phone-ui.piper-page .robot-controls .clutch-dock .toolbar button:nth-child(-n+3){grid-column:span 2}.piper-page #alignHead{background:#326c91}.phone-ui.piper-page #robotStatus{max-height:65px;overflow-y:auto;font-size:12px}
